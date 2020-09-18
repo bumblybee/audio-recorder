@@ -15,9 +15,11 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
       recordBtn.addEventListener("click", () => {
         recordBtn.classList.add("clicked");
+        recordBtn.style.backgroundColor = "#cc6969";
+        recordBtn.disabled = true;
         recordingText.textContent = "Recording";
         stopRecordBtn.classList.remove("clicked");
-
+        stopRecordBtn.style.backgroundColor = "#485fe4";
         rec.start();
 
         console.log(rec.state);
@@ -25,6 +27,9 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
       stopRecordBtn.addEventListener("click", () => {
         recordBtn.classList.remove("clicked");
+        recordBtn.style.backgroundColor = "#ec1313";
+        recordBtn.disabled = false;
+        stopRecordBtn.style.backgroundColor = "#7092dd";
         stopRecordBtn.classList.add("clicked");
         recordingText.textContent = "";
         rec.stop();
